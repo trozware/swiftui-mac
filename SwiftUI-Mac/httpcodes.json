@@ -1,0 +1,253 @@
+[
+  {
+    "headerCode": "1xx",
+    "headerText": "Informational",
+    "statuses": [
+      {
+        "code": "100",
+        "title": "Continue"
+      },
+      {
+        "code": "101",
+        "title": "Switching Protocols"
+      }
+    ]
+  },
+  {
+    "headerCode": "2xx",
+    "headerText": "Success",
+    "statuses": [
+      {
+        "code": "200",
+        "title": "OK"
+      },
+      {
+        "code": "201",
+        "title": "Created"
+      },
+      {
+        "code": "202",
+        "title": "Accepted"
+      },
+      {
+        "code": "204",
+        "title": "No Content"
+      },
+      {
+        "code": "206",
+        "title": "Partial Content"
+      },
+      {
+        "code": "207",
+        "title": "Multi-Status"
+      }
+    ]
+  },
+  {
+    "headerCode": "3xx",
+    "headerText": "Redirection",
+    "statuses": [
+      {
+        "code": "300",
+        "title": "Multiple Choices"
+      },
+      {
+        "code": "301",
+        "title": "Moved Permanently"
+      },
+      {
+        "code": "302",
+        "title": "Found"
+      },
+      {
+        "code": "303",
+        "title": "See Other"
+      },
+      {
+        "code": "304",
+        "title": "Not Modified"
+      },
+      {
+        "code": "305",
+        "title": "Use Proxy"
+      },
+      {
+        "code": "307",
+        "title": "Temporary Redirect"
+      }
+    ]
+  },
+  {
+    "headerCode": "4xx",
+    "headerText": "Client Error",
+    "statuses": [
+      {
+        "code": "400",
+        "title": "Bad Request"
+      },
+      {
+        "code": "401",
+        "title": "Unauthorized"
+      },
+      {
+        "code": "402",
+        "title": "Payment Required"
+      },
+      {
+        "code": "403",
+        "title": "Forbidden"
+      },
+      {
+        "code": "404",
+        "title": "Not Found"
+      },
+      {
+        "code": "405",
+        "title": "Method Not Allowed"
+      },
+      {
+        "code": "406",
+        "title": "Not Acceptable"
+      },
+      {
+        "code": "408",
+        "title": "Request Timeout"
+      },
+      {
+        "code": "409",
+        "title": "Conflict"
+      },
+      {
+        "code": "410",
+        "title": "Gone"
+      },
+      {
+        "code": "411",
+        "title": "Length Required"
+      },
+      {
+        "code": "412",
+        "title": "Precondition Failed"
+      },
+      {
+        "code": "413",
+        "title": "Payload Too Large"
+      },
+      {
+        "code": "414",
+        "title": "Request-URI Too Long"
+      },
+      {
+        "code": "415",
+        "title": "Unsupported Media Type"
+      },
+      {
+        "code": "416",
+        "title": "Requested Range Not Satisfiable"
+      },
+      {
+        "code": "417",
+        "title": "Expectation Failed"
+      },
+      {
+        "code": "418",
+        "title": "I'm a teapot"
+      },
+      {
+        "code": "421",
+        "title": "Misdirected Request"
+      },
+      {
+        "code": "422",
+        "title": "Unprocessable Entity"
+      },
+      {
+        "code": "423",
+        "title": "Locked"
+      },
+      {
+        "code": "424",
+        "title": "Failed Dependency"
+      },
+      {
+        "code": "425",
+        "title": "Unordered Collection"
+      },
+      {
+        "code": "426",
+        "title": "Upgrade Required"
+      },
+      {
+        "code": "429",
+        "title": "Too Many Requests"
+      },
+      {
+        "code": "431",
+        "title": "Request Header Fields Too Large"
+      },
+      {
+        "code": "444",
+        "title": "Connection Closed Without Response"
+      },
+      {
+        "code": "451",
+        "title": "Unavailable For Legal Reasons"
+      }
+      ]
+  },
+  {
+    "headerCode": "5xx",
+    "headerText": "Server Error",
+    "statuses": [
+      {
+        "code": "500",
+        "title": "Internal Server Error"
+      },
+      {
+        "code": "501",
+        "title": "Not Implemented"
+      },
+      {
+        "code": "502",
+        "title": "Bad Gateway"
+      },
+      {
+        "code": "503",
+        "title": "Service Unavailable"
+      },
+      {
+        "code": "504",
+        "title": "Gateway Timeout"
+      },
+      {
+        "code": "506",
+        "title": "Variant Also Negotiates"
+      },
+      {
+        "code": "507",
+        "title": "Insufficient Storage"
+      },
+      {
+        "code": "508",
+        "title": "Loop Detected"
+      },
+      {
+        "code": "509",
+        "title": "Bandwidth Limit Exceeded"
+      },
+      {
+        "code": "510",
+        "title": "Not Extended"
+      },
+      {
+        "code": "511",
+        "title": "Network Authentication Required"
+      },
+      {
+        "code": "599",
+        "title": "Network Connect Timeout Error"
+      }
+    ]
+  }
+]
+
