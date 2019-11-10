@@ -340,6 +340,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Format" id="GEO-Iw-cKr">
                                     <items>
+                                        <menuItem title="Flip image" keyEquivalent="i" id="ya2-Wr-ET1">
+                                            <connections>
+                                                <action selector="flipImage:" target="Voe-Tx-rLC" id="275-Cs-3vQ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="8KP-Ty-xdH"/>
                                         <menuItem title="Font" id="Gi5-1S-RQB">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Font" systemMenu="font" id="aXa-aM-Jaq">
@@ -602,6 +608,13 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
                                     <items>
+                                        <menuItem title="Show UI Samples" id="gmL-f8-bLE">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <segue destination="Dot-qF-wb6" kind="show" id="YEh-z3-Dck"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="ZEo-YC-qis"/>
                                         <menuItem title="Show Toolbar" keyEquivalent="t" id="snW-S8-Cw5">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                             <connections>
@@ -612,6 +625,25 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="runToolbarCustomizationPalette:" target="Ady-hI-5gd" id="pQI-g3-MTW"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kxj-rv-RpO"/>
+                                        <menuItem title="Dark mode" id="YFT-e0-JdA">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="darkModeSelected:" target="Voe-Tx-rLC" id="GHt-fP-PuD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Light mode" id="IyN-r6-Vzc">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="lightModeSelected:" target="Voe-Tx-rLC" id="e90-Ul-bdx"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="System mode" state="on" id="5ed-Fl-a9t">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="systemModeSelected:" target="Voe-Tx-rLC" id="ywr-NH-M40"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hB3-LF-h0Y"/>
@@ -673,11 +705,46 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftUI_Mac" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SwiftUI_Mac" customModuleProvider="target">
+                    <connections>
+                        <outlet property="darkModeMenuItem" destination="YFT-e0-JdA" id="DCN-Li-PQ9"/>
+                        <outlet property="lightModeMenuItem" destination="IyN-r6-Vzc" id="VLr-gc-1Dx"/>
+                        <outlet property="systemModeMenuItem" destination="5ed-Fl-a9t" id="CpE-Iz-m5z"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-93" y="-351"/>
+            <point key="canvasLocation" x="-102" y="-223"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="xzL-ea-2b4">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Dot-qF-wb6" sceneMemberID="viewController">
+                    <window key="window" title="UI Samples" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OuG-jL-NcE">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="320" y="343" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
+                        <value key="minSize" type="size" width="480" height="270"/>
+                        <connections>
+                            <outlet property="delegate" destination="Dot-qF-wb6" id="W7l-PY-LWu"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="ePI-eT-49l" kind="relationship" relationship="window.shadowedContentViewController" id="BrR-Fs-0jQ"/>
+                    </connections>
+                </windowController>
+                <customObject id="vfF-mG-5ug" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="249"/>
+        </scene>
+        <!--Samples Hosting Controller-->
+        <scene sceneID="TS6-bd-s75">
+            <objects>
+                <customObject id="RRC-et-gHo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <hostingController id="ePI-eT-49l" customClass="SamplesHostingController" customModule="SwiftUI_Mac" customModuleProvider="target" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="-90" y="805"/>
         </scene>
     </scenes>
 </document>

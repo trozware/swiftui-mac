@@ -10,10 +10,15 @@ import SwiftUI
 
 struct DetailView: View {
     let httpStatus: HttpStatus
-    @State private var catImage: NSImage?
 
+    @State private var catImage: NSImage?
+    @State private var imageIsFlipped = false
+    
+    private let flipImageMenuItemSelected = NotificationCenter.default
+        .publisher(for: .flipImage)
+    
     var body: some View {
-         VStack {
+        VStack {
             Text("HTTP Status Code: \(httpStatus.code)")
                 .font(.headline)
                 .padding()
@@ -21,15 +26,25 @@ struct DetailView: View {
                 .font(.title)
             
             if catImage != nil {
-                Image(nsImage: catImage!)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                ZStack {
+                    Image(nsImage: catImage!)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .rotation3DEffect(Angle(degrees: imageIsFlipped ? 180 : 0),
+                                          axis: (x: 0, y: 1, z: 0))
+                        .animation(.default)
+                    }
             }
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
             self.getCatImage()
+        }
+        .onReceive(flipImageMenuItemSelected) { _ in
+            DispatchQueue.main.async {
+                self.imageIsFlipped.toggle()
+            }
         }
     }
     
@@ -46,11 +61,12 @@ struct DetailView: View {
         }
         task.resume()
     }
-
+    
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(httpStatus: HttpStatus(code: "404", title: "Not Found"))
+            .environmentObject(Prefs())
     }
 }

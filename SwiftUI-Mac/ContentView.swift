@@ -10,19 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var httpSections: [HttpSection] = []
-
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(httpSections) { section in
-                     Section(header: SectionHeaderView(section: section)) {
-                         ForEach(section.statuses) { status in
+                    Section(header: SectionHeaderView(section: section)) {
+                        ForEach(section.statuses) { status in
                             NavigationLink(destination: DetailView(httpStatus: status)) {
-                                 TableRowView(status: status)
-                             }
-                         }
-                     }
-                 }
+                                TableRowView(status: status)
+                            }
+                        }
+                    }
+                }
             }
             .frame(minWidth: 250, maxWidth: 350)
         }
@@ -36,6 +36,7 @@ struct ContentView: View {
     func readCodes() {
         httpSections = Bundle.main.decode([HttpSection].self, from: "httpcodes.json")
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -51,13 +52,13 @@ struct SectionHeaderView: View {
         HStack(spacing: 20) {
             Text(section.headerCode)
                 .layoutPriority(1)
-                       
+            
             Text(section.headerText)
                 .lineLimit(1)
                 .truncationMode(.tail)
             
             Spacer()
-
+            
         }
     }
 }
