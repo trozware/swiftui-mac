@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView()
         let prefs = Prefs()
         
+        
         // Create the window and set the content view. 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
@@ -35,6 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             backing: .buffered, defer: false)
         window.center()
         window.setFrameAutosaveName("Main Window")
+        window.title = "SwiftUI for Mac"
         window.contentView = NSHostingView(rootView: contentView.environmentObject(prefs))
         window.makeKeyAndOrderFront(nil)
     }

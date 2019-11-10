@@ -19,6 +19,12 @@
 		265B34922373DA5800AE471E /* SamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265B34912373DA5800AE471E /* SamplesView.swift */; };
 		265B34952373DCCE00AE471E /* SamplesHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265B34932373DCCE00AE471E /* SamplesHostingController.swift */; };
 		265B34982373E3F000AE471E /* Prefs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265B34972373E3F000AE471E /* Prefs.swift */; };
+		26627E3F2377C0DD00E271AA /* PickerSamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26627E3E2377C0DD00E271AA /* PickerSamplesView.swift */; };
+		26627E412377C41A00E271AA /* SwitchSamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26627E402377C41A00E271AA /* SwitchSamplesView.swift */; };
+		26627E432377C5D000E271AA /* FormSamplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26627E422377C5D000E271AA /* FormSamplesView.swift */; };
+		267937852377D3B300DE45C7 /* EmbeddedColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937842377D3B300DE45C7 /* EmbeddedColorWell.swift */; };
+		267937872377DA2300DE45C7 /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937862377DA2300DE45C7 /* PrefsView.swift */; };
+		267937892377DA5D00DE45C7 /* NSWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937882377DA5D00DE45C7 /* NSWindow+Utils.swift */; };
 		26EC389C237389F700AE900B /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +44,12 @@
 		265B34912373DA5800AE471E /* SamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesView.swift; sourceTree = "<group>"; };
 		265B34932373DCCE00AE471E /* SamplesHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SamplesHostingController.swift; sourceTree = "<group>"; };
 		265B34972373E3F000AE471E /* Prefs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefs.swift; sourceTree = "<group>"; };
+		26627E3E2377C0DD00E271AA /* PickerSamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerSamplesView.swift; sourceTree = "<group>"; };
+		26627E402377C41A00E271AA /* SwitchSamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchSamplesView.swift; sourceTree = "<group>"; };
+		26627E422377C5D000E271AA /* FormSamplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormSamplesView.swift; sourceTree = "<group>"; };
+		267937842377D3B300DE45C7 /* EmbeddedColorWell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedColorWell.swift; sourceTree = "<group>"; };
+		267937862377DA2300DE45C7 /* PrefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsView.swift; sourceTree = "<group>"; };
+		267937882377DA5D00DE45C7 /* NSWindow+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Utils.swift"; sourceTree = "<group>"; };
 		26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,15 +84,10 @@
 			isa = PBXGroup;
 			children = (
 				2654D4A02372976800D48414 /* AppDelegate.swift */,
-				2654D4A22372976800D48414 /* ContentView.swift */,
-				2654D4B92372AC1A00D48414 /* DetailView.swift */,
-				265B34932373DCCE00AE471E /* SamplesHostingController.swift */,
-				265B34912373DA5800AE471E /* SamplesView.swift */,
-				265B34972373E3F000AE471E /* Prefs.swift */,
-				2654D4B72372A65B00D48414 /* HttpStatus.swift */,
-				2654D4B32372A01B00D48414 /* httpcodes.json */,
-				2654D4B52372A5AB00D48414 /* Helper.swift */,
-				26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */,
+				2679378C2377E5F900DE45C7 /* Master-Detail */,
+				26627E3D2377C0CC00E271AA /* UI Samples */,
+				2679378A2377E5E400DE45C7 /* Prefs */,
+				2679378B2377E5ED00DE45C7 /* Data */,
 				2654D4A42372976900D48414 /* Assets.xcassets */,
 				2654D4A92372976900D48414 /* Main.storyboard */,
 				2654D4AC2372976900D48414 /* Info.plist */,
@@ -96,6 +103,49 @@
 				2654D4A72372976900D48414 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		26627E3D2377C0CC00E271AA /* UI Samples */ = {
+			isa = PBXGroup;
+			children = (
+				265B34932373DCCE00AE471E /* SamplesHostingController.swift */,
+				265B34912373DA5800AE471E /* SamplesView.swift */,
+				26627E3E2377C0DD00E271AA /* PickerSamplesView.swift */,
+				26627E402377C41A00E271AA /* SwitchSamplesView.swift */,
+				26627E422377C5D000E271AA /* FormSamplesView.swift */,
+				267937842377D3B300DE45C7 /* EmbeddedColorWell.swift */,
+			);
+			path = "UI Samples";
+			sourceTree = "<group>";
+		};
+		2679378A2377E5E400DE45C7 /* Prefs */ = {
+			isa = PBXGroup;
+			children = (
+				267937862377DA2300DE45C7 /* PrefsView.swift */,
+				265B34972373E3F000AE471E /* Prefs.swift */,
+				26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */,
+				267937882377DA5D00DE45C7 /* NSWindow+Utils.swift */,
+			);
+			path = Prefs;
+			sourceTree = "<group>";
+		};
+		2679378B2377E5ED00DE45C7 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2654D4B72372A65B00D48414 /* HttpStatus.swift */,
+				2654D4B32372A01B00D48414 /* httpcodes.json */,
+				2654D4B52372A5AB00D48414 /* Helper.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2679378C2377E5F900DE45C7 /* Master-Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2654D4A22372976800D48414 /* ContentView.swift */,
+				2654D4B92372AC1A00D48414 /* DetailView.swift */,
+			);
+			path = "Master-Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,14 +220,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26627E432377C5D000E271AA /* FormSamplesView.swift in Sources */,
 				265B34982373E3F000AE471E /* Prefs.swift in Sources */,
 				2654D4A32372976800D48414 /* ContentView.swift in Sources */,
+				267937872377DA2300DE45C7 /* PrefsView.swift in Sources */,
 				2654D4A12372976800D48414 /* AppDelegate.swift in Sources */,
 				2654D4B62372A5AB00D48414 /* Helper.swift in Sources */,
+				26627E3F2377C0DD00E271AA /* PickerSamplesView.swift in Sources */,
 				2654D4BA2372AC1A00D48414 /* DetailView.swift in Sources */,
 				265B34922373DA5800AE471E /* SamplesView.swift in Sources */,
 				2654D4B82372A65B00D48414 /* HttpStatus.swift in Sources */,
+				26627E412377C41A00E271AA /* SwitchSamplesView.swift in Sources */,
 				26EC389C237389F700AE900B /* UserDefaultsPropertyWrapper.swift in Sources */,
+				267937852377D3B300DE45C7 /* EmbeddedColorWell.swift in Sources */,
+				267937892377DA5D00DE45C7 /* NSWindow+Utils.swift in Sources */,
 				265B34952373DCCE00AE471E /* SamplesHostingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

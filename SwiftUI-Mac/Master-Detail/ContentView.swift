@@ -10,10 +10,19 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var httpSections: [HttpSection] = []
-    
+    @State private var prefsWindow: PrefsView?
+
     var body: some View {
         NavigationView {
             List {
+                Button("Prefs") {
+                    if let prefsWindow = self.prefsWindow {
+                        prefsWindow.window.makeKeyAndOrderFront(self)
+                    } else {
+                        self.prefsWindow = PrefsView()
+                    }
+                }
+                
                 ForEach(httpSections) { section in
                     Section(header: SectionHeaderView(section: section)) {
                         ForEach(section.statuses) { status in

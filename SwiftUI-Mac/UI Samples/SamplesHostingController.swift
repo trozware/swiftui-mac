@@ -10,6 +10,6 @@ import SwiftUI
 
 class SamplesHostingController: NSHostingController<SamplesView> {
     @objc required dynamic init?(coder: NSCoder) {
-        super.init(coder: coder, rootView: SamplesView(prefs: Prefs(), isVisible: .constant(true)))
+        super.init(coder: coder, rootView: SamplesView())
     }
 }
