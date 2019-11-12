@@ -41,7 +41,6 @@ struct PrefsView: View {
             windowIsOpen = false
         }
     }
-    
 }
 
 struct PrefsView_Previews: PreviewProvider {
