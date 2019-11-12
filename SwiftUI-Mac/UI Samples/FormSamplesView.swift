@@ -34,7 +34,7 @@ struct FormSamplesView: View {
             HStack {
                 Text("Choose a color:")
                 EmbeddedColorWell(selectedColor: $selectedColor)
-                    .frame(width: 80, height: 30)
+                    .frame(width: 44, height: 23)
             }
              
             HStack {

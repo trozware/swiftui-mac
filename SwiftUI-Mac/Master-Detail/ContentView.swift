@@ -11,15 +11,18 @@ import SwiftUI
 struct ContentView: View {
     @State private var httpSections: [HttpSection] = []
     @State private var prefsWindow: PrefsView?
-
+    @State private var prefsWindowDelegate = PrefsWindowDelegate()
+    
     var body: some View {
         NavigationView {
             List {
                 Button("Prefs") {
-                    if let prefsWindow = self.prefsWindow {
-                        prefsWindow.window.makeKeyAndOrderFront(self)
+                    if self.prefsWindowDelegate.windowIsOpen {
+                        self.prefsWindow?.window.makeKeyAndOrderFront(self)
                     } else {
                         self.prefsWindow = PrefsView()
+                        self.prefsWindowDelegate.windowIsOpen = true
+                        self.prefsWindow?.window.delegate = self.prefsWindowDelegate
                     }
                 }
                 
@@ -44,6 +47,14 @@ struct ContentView: View {
     
     func readCodes() {
         httpSections = Bundle.main.decode([HttpSection].self, from: "httpcodes.json")
+    }
+    
+    class PrefsWindowDelegate: NSObject, NSWindowDelegate {
+        var windowIsOpen = false
+        
+        func windowWillClose(_ notification: Notification) {
+            windowIsOpen = false
+        }
     }
     
 }

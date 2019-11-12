@@ -723,10 +723,10 @@
                 <windowController showSeguePresentationStyle="single" id="Dot-qF-wb6" sceneMemberID="viewController">
                     <window key="window" title="UI Samples" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="OuG-jL-NcE">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <rect key="contentRect" x="320" y="343" width="470" height="400"/>
+                        <rect key="contentRect" x="320" y="343" width="470" height="450"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="2048" height="1129"/>
-                        <value key="minSize" type="size" width="470" height="400"/>
-                        <value key="maxSize" type="size" width="470" height="400"/>
+                        <value key="minSize" type="size" width="470" height="450"/>
+                        <value key="maxSize" type="size" width="470" height="450"/>
                         <connections>
                             <outlet property="delegate" destination="Dot-qF-wb6" id="W7l-PY-LWu"/>
                         </connections>
