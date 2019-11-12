@@ -10,7 +10,9 @@ import SwiftUI
 
 struct DetailView: View {
     let httpStatus: HttpStatus
-
+    
+    @EnvironmentObject var prefs: Prefs
+    
     @State private var catImage: NSImage?
     @State private var imageIsFlipped = false
     
@@ -33,7 +35,14 @@ struct DetailView: View {
                         .rotation3DEffect(Angle(degrees: imageIsFlipped ? 180 : 0),
                                           axis: (x: 0, y: 1, z: 0))
                         .animation(.default)
-                    }
+                        .overlay(
+                            Text(prefs.showCopyright ? "Copyright © https://http.cat" : "")
+                                .padding(6)
+                                .font(.caption)
+                                .foregroundColor(.white)
+                                .shadow(radius: 5)
+                            ,alignment: .bottomTrailing)
+                }
             }
             Spacer()
         }

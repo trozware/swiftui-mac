@@ -10,14 +10,6 @@ import SwiftUI
 
 extension NSWindow {
     
-    static func windowExists(withTitle title: String) -> Bool {
-        if let existingWindow = NSApplication.shared.windows.first(where: { $0.title == title }) {
-            existingWindow.makeKeyAndOrderFront(nil)
-            return true
-        }
-        return false
-    }
-    
     static func createStandardWindow(withTitle title: String,
                                      width: CGFloat = 800, height: CGFloat = 600) -> NSWindow {
         let window = NSWindow(

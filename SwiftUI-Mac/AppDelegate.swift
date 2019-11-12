@@ -28,7 +28,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let contentView = ContentView()
         let prefs = Prefs()
         
-        
         // Create the window and set the content view. 
         window = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
@@ -97,10 +96,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         NotificationCenter.default.post(name: .flipImage, object: nil)
     }
     
-
+    @IBAction func openPrefsWindow(_ sender: Any) {
+        NotificationCenter.default.post(name: .openPrefs, object: nil)
+    }
     
 }
 
 extension Notification.Name {
     static let flipImage = Notification.Name("flip_image")
+    static let openPrefs = Notification.Name("open_prefs")
 }

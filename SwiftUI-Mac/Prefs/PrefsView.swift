@@ -9,27 +9,32 @@
 import SwiftUI
 
 struct PrefsView: View {
+    @ObservedObject var prefs: Prefs
+    
     var body: some View {
         VStack {
-            Text("Hello, Prefs!")
+            Toggle(isOn: $prefs.showCopyright) {
+                Text("Show Copyright Notice")
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
     
     var window: NSWindow!
-    init() {
+    init(prefs: Prefs) {
+        self.prefs = prefs
+        
         window = NSWindow.createStandardWindow(withTitle: "Preferences",
-                                               width: 480,
-                                               height: 300)
+                                               width: 300,
+                                               height: 100)
         window.contentView = NSHostingView(rootView: self)
         window.makeKeyAndOrderFront(nil)
     }
-    
     
 }
 
 struct PrefsView_Previews: PreviewProvider {
     static var previews: some View {
-        PrefsView()
+        PrefsView(prefs: Prefs())
     }
 }

@@ -10,22 +10,16 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var httpSections: [HttpSection] = []
-    @State private var prefsWindow: PrefsView?
+    
+    @EnvironmentObject var prefs: Prefs
+    @State private var prefsView: PrefsView?
     @State private var prefsWindowDelegate = PrefsWindowDelegate()
+    
+    private let prefsMenuItemSelected = NotificationCenter.default.publisher(for: .openPrefs)
     
     var body: some View {
         NavigationView {
             List {
-                Button("Prefs") {
-                    if self.prefsWindowDelegate.windowIsOpen {
-                        self.prefsWindow?.window.makeKeyAndOrderFront(self)
-                    } else {
-                        self.prefsWindow = PrefsView()
-                        self.prefsWindowDelegate.windowIsOpen = true
-                        self.prefsWindow?.window.delegate = self.prefsWindowDelegate
-                    }
-                }
-                
                 ForEach(httpSections) { section in
                     Section(header: SectionHeaderView(section: section)) {
                         ForEach(section.statuses) { status in
@@ -43,10 +37,25 @@ struct ContentView: View {
         .onAppear {
             self.readCodes()
         }
+        .onReceive(prefsMenuItemSelected) { _ in
+            DispatchQueue.main.async {
+                self.openOrShowPrefs()
+            }
+        }
     }
     
     func readCodes() {
         httpSections = Bundle.main.decode([HttpSection].self, from: "httpcodes.json")
+    }
+    
+    func openOrShowPrefs() {
+        if prefsWindowDelegate.windowIsOpen {
+            prefsView?.window.makeKeyAndOrderFront(self)
+        } else {
+            prefsView = PrefsView(prefs: prefs)
+            prefsWindowDelegate.windowIsOpen = true
+            prefsView?.window.delegate = prefsWindowDelegate
+        }
     }
     
     class PrefsWindowDelegate: NSObject, NSWindowDelegate {
@@ -62,6 +71,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(Prefs())
     }
 }
 
