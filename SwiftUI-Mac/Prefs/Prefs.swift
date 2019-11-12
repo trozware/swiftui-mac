@@ -9,9 +9,11 @@
 import Foundation
 
 class Prefs: ObservableObject {
+    
     @Published var showCopyright: Bool = UserDefaults.standard.bool(forKey: "showCopyright") {
         didSet {
             UserDefaults.standard.set(self.showCopyright, forKey: "showCopyright")
         }
     }
+    
 }

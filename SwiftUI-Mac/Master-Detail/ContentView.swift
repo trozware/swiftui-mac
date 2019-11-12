@@ -11,12 +11,6 @@ import SwiftUI
 struct ContentView: View {
     @State private var httpSections: [HttpSection] = []
     
-    @EnvironmentObject var prefs: Prefs
-    @State private var prefsView: PrefsView?
-    @State private var prefsWindowDelegate = PrefsWindowDelegate()
-    
-    private let prefsMenuItemSelected = NotificationCenter.default.publisher(for: .openPrefs)
-    
     var body: some View {
         NavigationView {
             List {
@@ -37,33 +31,10 @@ struct ContentView: View {
         .onAppear {
             self.readCodes()
         }
-        .onReceive(prefsMenuItemSelected) { _ in
-            DispatchQueue.main.async {
-                self.openOrShowPrefs()
-            }
-        }
     }
     
     func readCodes() {
         httpSections = Bundle.main.decode([HttpSection].self, from: "httpcodes.json")
-    }
-    
-    func openOrShowPrefs() {
-        if prefsWindowDelegate.windowIsOpen {
-            prefsView?.window.makeKeyAndOrderFront(self)
-        } else {
-            prefsView = PrefsView(prefs: prefs)
-            prefsWindowDelegate.windowIsOpen = true
-            prefsView?.window.delegate = prefsWindowDelegate
-        }
-    }
-    
-    class PrefsWindowDelegate: NSObject, NSWindowDelegate {
-        var windowIsOpen = false
-        
-        func windowWillClose(_ notification: Notification) {
-            windowIsOpen = false
-        }
     }
     
 }

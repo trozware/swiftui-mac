@@ -21,12 +21,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @UserDefault("system_mode", defaultValue: "system")
     var systemMode: String
     
+    let prefs = Prefs()
+    var prefsView: PrefsView?
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setStoredSystemMode()
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
-        let prefs = Prefs()
         
         // Create the window and set the content view. 
         window = NSWindow(
@@ -95,14 +97,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func flipImage(_ sender: Any) {
         NotificationCenter.default.post(name: .flipImage, object: nil)
     }
-    
+        
     @IBAction func openPrefsWindow(_ sender: Any) {
-        NotificationCenter.default.post(name: .openPrefs, object: nil)
+        if let prefsView = prefsView, prefsView.prefsWindowDelegate.windowIsOpen {
+            prefsView.window.makeKeyAndOrderFront(self)
+        } else {
+            prefsView = PrefsView(prefs: prefs)
+        }
     }
     
 }
 
 extension Notification.Name {
     static let flipImage = Notification.Name("flip_image")
-    static let openPrefs = Notification.Name("open_prefs")
 }
