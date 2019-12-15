@@ -59,7 +59,6 @@ struct SectionHeaderView: View {
                 .truncationMode(.tail)
             
             Spacer()
-            
         }
     }
 }

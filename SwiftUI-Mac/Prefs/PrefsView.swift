@@ -30,6 +30,7 @@ struct PrefsView: View {
                                                height: 100)
         window.contentView = NSHostingView(rootView: self)
         window.delegate = prefsWindowDelegate
+        window.tabbingMode = .disallowed
         prefsWindowDelegate.windowIsOpen = true
         window.makeKeyAndOrderFront(nil)
     }

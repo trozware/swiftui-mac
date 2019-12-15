@@ -23,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     let prefs = Prefs()
     var prefsView: PrefsView?
-
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setStoredSystemMode()
         
@@ -38,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         window.center()
         window.setFrameAutosaveName("Main Window")
         window.title = "SwiftUI for Mac"
+        window.tabbingMode = .disallowed
         window.contentView = NSHostingView(rootView: contentView.environmentObject(prefs))
         window.makeKeyAndOrderFront(nil)
     }
@@ -75,7 +76,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             systemModeMenuItem.state = .on
         }
     }
-
+    
     @IBAction func darkModeSelected(_ sender: Any) {
         NSApp.appearance = NSAppearance(named: .darkAqua)
         systemMode = "dark"
@@ -97,7 +98,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBAction func flipImage(_ sender: Any) {
         NotificationCenter.default.post(name: .flipImage, object: nil)
     }
-        
+    
     @IBAction func openPrefsWindow(_ sender: Any) {
         if let prefsView = prefsView, prefsView.prefsWindowDelegate.windowIsOpen {
             prefsView.window.makeKeyAndOrderFront(self)
@@ -110,4 +111,5 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 extension Notification.Name {
     static let flipImage = Notification.Name("flip_image")
+    static let saveImage = Notification.Name("save_image")
 }

@@ -25,6 +25,7 @@
 		267937852377D3B300DE45C7 /* EmbeddedColorWell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937842377D3B300DE45C7 /* EmbeddedColorWell.swift */; };
 		267937872377DA2300DE45C7 /* PrefsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937862377DA2300DE45C7 /* PrefsView.swift */; };
 		267937892377DA5D00DE45C7 /* NSWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 267937882377DA5D00DE45C7 /* NSWindow+Utils.swift */; };
+		26A2BE65237B68640089C50B /* DialogsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A2BE64237B68640089C50B /* DialogsView.swift */; };
 		26EC389C237389F700AE900B /* UserDefaultsPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		267937842377D3B300DE45C7 /* EmbeddedColorWell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedColorWell.swift; sourceTree = "<group>"; };
 		267937862377DA2300DE45C7 /* PrefsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefsView.swift; sourceTree = "<group>"; };
 		267937882377DA5D00DE45C7 /* NSWindow+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSWindow+Utils.swift"; sourceTree = "<group>"; };
+		26A2BE64237B68640089C50B /* DialogsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogsView.swift; sourceTree = "<group>"; };
 		26EC389B237389F700AE900B /* UserDefaultsPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPropertyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,6 +66,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		263AAEF4237BD28E001994C5 /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				26A2BE64237B68640089C50B /* DialogsView.swift */,
+			);
+			path = Dialogs;
+			sourceTree = "<group>";
+		};
 		2654D4942372976800D48414 = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +97,7 @@
 				2679378C2377E5F900DE45C7 /* Master-Detail */,
 				26627E3D2377C0CC00E271AA /* UI Samples */,
 				2679378A2377E5E400DE45C7 /* Prefs */,
+				263AAEF4237BD28E001994C5 /* Dialogs */,
 				2679378B2377E5ED00DE45C7 /* Data */,
 				2654D4A42372976900D48414 /* Assets.xcassets */,
 				2654D4A92372976900D48414 /* Main.storyboard */,
@@ -175,7 +186,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1120;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Sarah Reichelt";
 				TargetAttributes = {
 					2654D49C2372976800D48414 = {
@@ -230,6 +241,7 @@
 				2654D4BA2372AC1A00D48414 /* DetailView.swift in Sources */,
 				265B34922373DA5800AE471E /* SamplesView.swift in Sources */,
 				2654D4B82372A65B00D48414 /* HttpStatus.swift in Sources */,
+				26A2BE65237B68640089C50B /* DialogsView.swift in Sources */,
 				26627E412377C41A00E271AA /* SwitchSamplesView.swift in Sources */,
 				26EC389C237389F700AE900B /* UserDefaultsPropertyWrapper.swift in Sources */,
 				267937852377D3B300DE45C7 /* EmbeddedColorWell.swift in Sources */,
@@ -370,6 +382,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Mac/SwiftUI_Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Mac/Preview Content\"";
@@ -393,6 +406,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "SwiftUI-Mac/SwiftUI_Mac.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Mac/Preview Content\"";

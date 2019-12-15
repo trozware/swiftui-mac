@@ -11,13 +11,14 @@ import SwiftUI
 struct DetailView: View {
     let httpStatus: HttpStatus
     
-    
     @State private var catImage: NSImage?
     @State private var imageIsFlipped = false
     
     private let flipImageMenuItemSelected = NotificationCenter.default
         .publisher(for: .flipImage)
-    
+    private let saveImageUrlSelected = NotificationCenter.default
+         .publisher(for: .saveImage)
+
     var body: some View {
         VStack {
             Text("HTTP Status Code: \(httpStatus.code)")
@@ -28,8 +29,13 @@ struct DetailView: View {
             
             if catImage != nil {
                 CatImageView(catImage: catImage!, imageIsFlipped: imageIsFlipped)
+            } else {
+                Spacer()
+                Text("Loading...")
+                    .font(.headline)
             }
             Spacer()
+            DialogsView()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .onAppear {
@@ -38,6 +44,16 @@ struct DetailView: View {
         .onReceive(flipImageMenuItemSelected) { _ in
             DispatchQueue.main.async {
                 self.imageIsFlipped.toggle()
+            }
+        }
+        .onReceive(saveImageUrlSelected) { publisher in
+            if let saveUrl = publisher.object as? URL,
+                let imageData = self.catImage?.tiffRepresentation {
+                if let imageRep = NSBitmapImageRep(data: imageData) {
+                    if let saveData = imageRep.representation(using: .jpeg, properties: [:]) {
+                        try? saveData.write(to: saveUrl)
+                    }
+                }
             }
         }
     }
@@ -67,7 +83,7 @@ struct DetailView_Previews: PreviewProvider {
 
 struct CatImageView: View {
     @EnvironmentObject var prefs: Prefs
-
+    
     let catImage: NSImage
     let imageIsFlipped: Bool
     
