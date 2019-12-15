@@ -12,7 +12,7 @@ struct PickerSamplesView: View {
     @State private var menuSelected = 0
     @State private var radioSelected = 0
     @State private var segmentSelected = 0
-
+    
     var body: some View {
         VStack {
             Text("This picker uses the default style.")
@@ -31,7 +31,7 @@ struct PickerSamplesView: View {
             
             Text("This picker uses the RadioGroupPickerStyle.")
                 .modifier(ExplanatoryText())
-
+            
             GroupBox {
                 Picker(selection: $radioSelected, label: Text("Place your vote:")) {
                     Text("Yes").tag(0)

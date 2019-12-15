@@ -91,7 +91,7 @@ struct DialogsView_Previews: PreviewProvider {
 struct SheetView: View {
     @Binding var isVisible: Bool
     @Binding var enteredText: String
-
+    
     var body: some View {
         VStack {
             HStack {
@@ -106,7 +106,7 @@ struct SheetView: View {
                     .multilineTextAlignment(.center)
             }
             TextField("Enter the result of the dialog here…", text: $enteredText)
-                 .padding()
+                .padding()
             
             HStack {
                 Button("Cancel") {

@@ -11,7 +11,7 @@ import SwiftUI
 struct PrefsView: View {
     @ObservedObject var prefs: Prefs
     @State var prefsWindowDelegate = PrefsWindowDelegate()
-
+    
     var body: some View {
         VStack {
             Toggle(isOn: $prefs.showCopyright) {

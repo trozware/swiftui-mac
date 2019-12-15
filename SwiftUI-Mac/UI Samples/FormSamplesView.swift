@@ -13,18 +13,18 @@ struct FormSamplesView: View {
     @State private var password = ""
     @State private var selectedDate = Date()
     @State private var selectedColor = NSColor.blue
-
+    
     var body: some View {
         VStack {
             TextField("Enter your email address", text: $email)
             
             SecureField("Enter your password", text: $password)
-  
+            
             DatePicker(selection:  $selectedDate, displayedComponents: [.date ]) {
                 Text("Pick a date:")
             }
             .padding()
-
+            
             DatePicker(selection:  $selectedDate, displayedComponents: [.date ]) {
                 Text("Pick a date graphically:")
             }
@@ -36,7 +36,7 @@ struct FormSamplesView: View {
                 EmbeddedColorWell(selectedColor: $selectedColor)
                     .frame(width: 44, height: 23)
             }
-             
+            
             HStack {
                 Button("Cancel") {}
                 Spacer()

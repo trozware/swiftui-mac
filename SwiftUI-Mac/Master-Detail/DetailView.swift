@@ -17,8 +17,8 @@ struct DetailView: View {
     private let flipImageMenuItemSelected = NotificationCenter.default
         .publisher(for: .flipImage)
     private let saveImageUrlSelected = NotificationCenter.default
-         .publisher(for: .saveImage)
-
+        .publisher(for: .saveImage)
+    
     var body: some View {
         VStack {
             Text("HTTP Status Code: \(httpStatus.code)")

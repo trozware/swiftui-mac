@@ -14,7 +14,7 @@ struct EmbeddedColorWell: NSViewRepresentable {
     func makeNSView(context: Context) -> NSColorWell {
         NSColorWell(frame: .zero)
     }
-
+    
     func updateNSView(_ nsView: NSColorWell, context: Context) {
         nsView.color = selectedColor
     }

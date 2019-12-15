@@ -23,7 +23,7 @@ struct SwitchSamplesView: View {
             }
             
             Divider().padding(.vertical)
-
+            
             Text("Steppers and sliders are much the same.")
                 .modifier(ExplanatoryText())
             
@@ -40,13 +40,13 @@ struct SwitchSamplesView: View {
             .padding()
             
             Divider().padding(.vertical)
-
+            
             Group {
                 Text("Toggle value = \(toggleValue ? "ON" : "OFF")")
                 Text("Stepper value = \(stepperValue)")
                 Text("Slider value = \(sliderValue, specifier: "%.2f")")
             }
-                .modifier(ExplanatoryText())
+            .modifier(ExplanatoryText())
         }
             
         .padding()
