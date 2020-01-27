@@ -16,6 +16,8 @@ struct DetailView: View {
     
     private let flipImageMenuItemSelected = NotificationCenter.default
         .publisher(for: .flipImage)
+        .receive(on: RunLoop.main)
+    
     private let saveImageUrlSelected = NotificationCenter.default
         .publisher(for: .saveImage)
     
@@ -42,9 +44,9 @@ struct DetailView: View {
             self.getCatImage()
         }
         .onReceive(flipImageMenuItemSelected) { _ in
-            DispatchQueue.main.async {
+            // DispatchQueue.main.async {
                 self.imageIsFlipped.toggle()
-            }
+            // }
         }
         .onReceive(saveImageUrlSelected) { publisher in
             if let saveUrl = publisher.object as? URL,

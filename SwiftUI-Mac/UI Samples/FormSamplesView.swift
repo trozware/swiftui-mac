@@ -36,6 +36,7 @@ struct FormSamplesView: View {
                 EmbeddedColorWell(selectedColor: $selectedColor)
                     .frame(width: 44, height: 23)
             }
+            .background(Color(selectedColor))
             
             HStack {
                 Button("Cancel") {}

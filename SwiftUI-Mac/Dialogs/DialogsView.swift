@@ -61,7 +61,11 @@ struct DialogsView: View {
                   }))
         }
         .sheet(isPresented: $sheetIsShowing) {
-            SheetView(isVisible: self.$sheetIsShowing, enteredText: self.$dialogResult)
+            // sheet dismissed using Binding
+            // SheetView(isVisible: self.$sheetIsShowing, enteredText: self.$dialogResult)
+            
+            // sheet dismissed using Environment presentation mode
+            SheetView(enteredText: self.$dialogResult)
         }
     }
     
@@ -84,14 +88,24 @@ struct DialogsView: View {
 struct DialogsView_Previews: PreviewProvider {
     static var previews: some View {
         // DialogsView()
-        SheetView(isVisible: .constant(true), enteredText: .constant(""))
+        
+        // sheet dismissed using Binding
+        // SheetView(isVisible: .constant(true), enteredText: .constant(""))
+        
+        // sheet dismissed using Environment presentation mode
+        SheetView(enteredText: .constant(""))
     }
 }
 
 struct SheetView: View {
-    @Binding var isVisible: Bool
-    @Binding var enteredText: String
+    // sheet dismissed using Binding
+    // @Binding var isVisible: Bool
     
+    // sheet dismissed using Environment presentation mode
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var enteredText: String
+
     var body: some View {
         VStack {
             HStack {
@@ -110,13 +124,23 @@ struct SheetView: View {
             
             HStack {
                 Button("Cancel") {
-                    self.isVisible = false
+                    // sheet dismissed using Binding
+                    // self.isVisible = false
+                    
                     self.enteredText = "Cancel clicked in Sheet"
+                    
+                    // sheet dismissed using Environment presentation mode
+                    self.presentationMode.wrappedValue.dismiss()
                 }
                 Spacer()
                 Button("OK") {
-                    self.isVisible = false
+                    // sheet dismissed using Binding
+                    // self.isVisible = false
+                    
                     self.enteredText = "OK: \(self.enteredText)"
+                    
+                    // sheet dismissed using Environment presentation mode
+                    self.presentationMode.wrappedValue.dismiss()
                 }
             }
         }
